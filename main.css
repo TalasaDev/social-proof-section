@@ -1,0 +1,281 @@
+/*
+
+  Errors in the responsive layout on the css. 
+  Mixed style properties between both screen 
+  sizes. Needs fix. MOBILE FIRST
+
+
+*/
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+
+  /* primary colors */
+  --very-dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+
+  /* neutral colors */
+  --dark-grayish-magenta: hsl(303, 10%, 53%);
+  --light-grayish-magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+
+  font-family: 'League Spartan', sans-serif;
+  font-size: 15px;
+}
+
+/* MOBILE  DESIGN FIRST */
+
+body {
+  width: 100%;
+  background-image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg");
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 375px; 
+  max-width: 400px;
+  height: auto;
+  overflow: hidden;
+  margin: auto;  
+}
+
+.top-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-wrap .h1-p {
+  height: 100%;
+}
+
+.top-wrap h1 {
+  margin: 70px 0 20px 0;
+  padding: 0 40px;
+  color: var(--very-dark-magenta);
+  letter-spacing: -2px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 2.8rem; 
+}
+
+.top-wrap p {
+  font-size: 1.3rem;
+  text-align: center;
+  line-height: 28px;
+  color: var(--dark-grayish-magenta);
+  letter-spacing: -1px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.ratings { 
+  margin-bottom: 30px;
+}
+
+.top-wrap .ratings {
+  width: 100%;
+}
+
+.top-wrap .stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  height: 80px;
+  border-radius: 10px;
+  background:hsl(300, 24%, 96%);
+  gap: 10px;
+}
+
+.top-wrap .stars-wrap {
+  margin-top: 30px;
+}
+
+.top-wrap .stars p {
+  font-weight: 700;
+  color: var(--very-dark-magenta);
+  font-size: 1.2rem;  
+}
+
+
+.bottom-wrap {
+  margin-bottom: 100px;
+}
+
+.bottom-wrap .review {
+  background: var(--very-dark-magenta);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.bottom-wrap .review .img-name p {
+  font-weight: bold;
+}
+
+.img-name {
+  display: flex;
+  flex-direction: row;  
+  align-items: center;  
+}
+
+.bottom-wrap img {
+  scale: 50%;
+  border-radius: 100%;
+  margin: 0;
+  margin-left: -20px;
+
+}
+
+.img-name p {
+  color:hsl(0, 0%, 100%);
+  font-weight: 700;
+  font-size: 1.1rem;  
+}
+
+.img-name span {
+  display: block;
+  color:hsl(333, 80%, 67%);
+  font-size: 1.1rem;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.review   p {
+  color:hsl(300, 24%, 96%);
+  font-size: 1.1rem;
+  line-height: 20px;
+  font-weight: 500;  
+}
+
+.attribution {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.attribution .a {
+  color: gray;
+  text-decoration: none;
+}
+
+.attribution .aa {
+  color:hsl(333, 80%, 67%);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.aa:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+
+@media (min-width:600px) {
+ 
+  body {
+    max-width: 1440px;
+    min-width: 400px;
+    margin: auto;
+    background-image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
+    background-repeat: no-repeat;   
+  }
+
+  main {
+    max-width: 1440px;
+    width: 100%;
+    padding: 140px;    
+  }
+
+  .top-wrap {
+    
+    /* @correlucas solution Github */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding-bottom: 3rem;
+  }
+
+  .top-wrap .h1-p {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+  }
+
+  .top-wrap .h1-p p {
+    display: flex;
+    text-align: left;
+    margin-top: 25px;
+    font-size: 1.3rem;
+    padding-right: 110px;
+  }
+
+  .top-wrap .h1-p h1 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: left;
+    font-size: 3.5rem;
+    line-height: 43px;
+    padding-right: 120px;
+  }
+
+  .stars {
+    display: flex;
+    gap: 6px;
+    width: 28.125rem;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    color:hsl(300, 43%, 22%);
+    background-color: hsl(301, 23%, 96%, 1);
+    border-radius: 0.5rem;    
+  }
+
+  .ratings .two {
+    margin-left: 3rem;
+    margin-top: 2.5rem;
+  }
+
+  .ratings .three {
+    margin-left: 6rem;
+    margin-top: 2.5rem;
+  }
+
+  .bottom-wrap {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.875rem;
+    position: relative;
+  }
+
+  .irene {
+    margin-top: 30px;
+  }
+
+  .anne {
+    margin-top: 60px;
+  }
+
+  
+  
+
+
+  
+}
